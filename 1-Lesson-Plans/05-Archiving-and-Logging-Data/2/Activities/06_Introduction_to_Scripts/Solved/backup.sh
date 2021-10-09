@@ -10,7 +10,7 @@ tar cvf /var/backup/home.tar /home
 mv /var/backup/home.tar /var/backup/home.01012020.tar
 
 # Creates an archive of `/home`and saves it to `/var/backup/home.tar`.
-tar cvf /var/backup/system.tar /home 	
+tar cvf /var/backup/home.tar /home 	
 
 # List all files in `/var/backup`, including file sizes, and save the output to `/var/backup/file_report.txt`.
 ls -lh /var/backup > /var/backup/file_report.txt
