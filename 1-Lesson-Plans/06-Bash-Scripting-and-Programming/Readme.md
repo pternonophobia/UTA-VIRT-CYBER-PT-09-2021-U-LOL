@@ -8,6 +8,8 @@ In the final unit of our introduction to Linux system administration, we'll lear
 
 - In Day 3, we will participate in a Linux Scavenger Hunt. This extended activity will put to use all the skills and tools covered in the past three units. 
 
+Slides: [Click Here](https://docs.google.com/presentation/d/1R1cLZa_xRXYqOwEHsiyGWP90YndeZmhE8cFmx8tK168/edit#slide=id.g4f80a3047b_0_990)
+
 ### Unit Objectives 
 
 <details>
