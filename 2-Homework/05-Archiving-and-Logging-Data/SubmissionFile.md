@@ -9,45 +9,56 @@ Save and submit the completed file for your homework submission.
 ### Step 1: Create, Extract, Compress, and Manage tar Backup Archives
 
 1. Command to **extract** the `TarDocs.tar` archive to the current directory:
-
+    tar -xvf TarDocs.tar
 2. Command to **create** the `Javaless_Doc.tar` archive from the `TarDocs/` directory, while excluding the `TarDocs/Documents/Java` directory:
-
+    tar -cvf Javaless_Docs.tar --exclude-tag-under=Java ~/Projects/TarDocs
 3. Command to ensure `Java/` is not in the new `Javaless_Docs.tar` archive:
-
+    tar -tf Javaless_Docs.tar | grep -rw Java *
 **Bonus** 
 - Command to create an incremental archive called `logs_backup_tar.gz` with only changed files to `snapshot.file` for the `/var/log` directory:
-
+sudo tar --listed-incremental=snapshot.file -cvzf logs_backup.tar.gz /var/log
 #### Critical Analysis Question
 
 - Why wouldn't you use the options `-x` and `-c` at the same time with `tar`?
-
+    -c creats an archive, -x executes it, you cant execute an archive with nothing in it, or at the same time its created.
 ---
 
 ### Step 2: Create, Manage, and Automate Cron Jobs
 
 1. Cron job for backing up the `/var/log/auth.log` file:
-
+    0 6 * * 3 tar -czf /auth_backup.tgz /var/log/auth.log
 ---
 
 ### Step 3: Write Basic Bash Scripts
 
 1. Brace expansion command to create the four subdirectories:
-
+    sudo mkdir -p ~/backups/{freemem,diskuse,openlist,freedisk}
 2. Paste your `system.sh` script edits below:
 
     ```bash
     #!/bin/bash
-    [Your solution script contents here]
+    
+    # Print memory to free_mem.txt
+    free -mh > awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }' > ~/backups/freemem/free_mem.txt
+
+    # Print disk usage to disk_usage.txt
+    df -h | awk '$NF=="/"{printf "Disk Usage: %d/%dGB (%s)\n", $3,$2,$5}' > ~/backups/diskuse/disk_usage.txt
+
+    # List open files to open_list.txt
+    lsof > ~/backups/openlist/open_list.txt
+
+    # Print free disk space to free_disk.txt
+    df -h >> ~/backups/freedisk/free_disk.txt
     ```
 
 3. Command to make the `system.sh` script executable:
-
+    sudo chmod +x system.sh
 **Optional**
 - Commands to test the script and confirm its execution:
 
 **Bonus**
 - Command to copy `system` to system-wide cron directory:
-
+    sudo cp system.sh /etc/cron.weekly
 ---
 
 ### Step 4. Manage Log File Sizes
