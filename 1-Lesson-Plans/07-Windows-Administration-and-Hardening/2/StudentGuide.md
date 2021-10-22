@@ -227,7 +227,7 @@ Property : length
 
 - The CMD batch script required a default file size be set to 0.
 - It took a long time to find the individual file sizes within the subdirectory.
-- It then read each of those text strings and added them to the original file size. 
+- It then reads each of those text strings and added them to the original file size. 
 
 This script is inefficient and challenging for others to read. 
 
