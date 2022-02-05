@@ -6,6 +6,8 @@ Today, you'll take a break from flexing your technical skills and focus on commu
 
 To that end, you will summarize your work in a presentation containing the following sections:
 
+## Note: CHANGE TO ASSIGNMENT: You only need to report on EITHER the red team or blue team activity. Pick one to report on and the other is optional. 
+
 - **Network Topology**
     - What are the addresses and relationships of the machines involved?
     - All of the VMs in the attack should be described. Optionally, you can also include the hypervisor machine itself.
